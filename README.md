@@ -1,5 +1,5 @@
 # se_lab_project1
-Introduction
+Introduction <br>
 1.1 Purpose
 1.2 Document Conventions
 1.3 Intended Audience and Reading Suggestions

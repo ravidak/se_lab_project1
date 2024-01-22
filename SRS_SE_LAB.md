@@ -113,11 +113,26 @@ User interactions exhibit minimal response times for enhanced usability.
 
 ### 5.1 Use Case Diagram
 
+Use Case Diagram for Authors (Speakers)
+
 Actors:
-- Guest (Doesn't login)
-- Speaker
-- Reviewer
-- Program Committee/Organizer
+  - Guest (Doesn't login)
+  - Speaker
+
+Use Cases:
+  1. Login
+  2. Submit Abstract
+  3. Upload Supporting Documents
+  4. View Submission Status
+  5. Receive Notification
+
+Associations:
+  - Guest -> Login
+  - Speaker -> Submit Abstract
+  - Speaker -> Upload Supporting Documents
+  - Speaker -> View Submission Status
+  - Speaker -> Receive Notification
+
    
 ![image](https://github.com/SauravB210489CS/selab23_basics/assets/155982778/1c2726fc-f33d-4bf8-b674-7852f1463f54)
 

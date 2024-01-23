@@ -122,7 +122,7 @@ Actors:
 Use Cases:
   1. Login
   2. Submit Abstract
-  3. Upload Supporting Documents
+  3. Upload Documents (pdf file)
   4. View Submission Status
   5. Receive Notification
 

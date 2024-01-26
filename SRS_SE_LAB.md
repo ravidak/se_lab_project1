@@ -11,8 +11,6 @@ This document is intended for speakers and the administrators responsible for ma
 ### 1.3 Product Scope
 This section outlines the features related to the CFP (Call for papers) process, where users can login and submit abstracts for review.
 
-### 1.4 References
-* [Spring Boot Documentation](https://spring.io/)
 
 ## Overall Description
 ### 2.1 Product Perspective
@@ -20,7 +18,8 @@ The NITCONF website is an integral part of the NITCONF conference management sys
 
 The major components of the overall system include the Author Module (Module 1), Reviewer Module (Module 2), Program Committee Module (Module 3), and the Notification System. The interaction between these modules will be facilitated through well-defined interfaces.
 
-![](./flowchart.png)
+![se_lab_srs_requirements drawio](https://github.com/ravidak/se_lab_project1/assets/101610787/e41bff39-d979-42b0-880a-91cca66bfb75)
+
 
 ### 2.2 Product Functions
 * User registration and login functionality for authors.

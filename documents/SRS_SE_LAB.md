@@ -18,7 +18,6 @@ The NITCONF website is an integral part of the NITCONF conference management sys
 
 The major components of the overall system include the Author Module (Module 1), Reviewer Module (Module 2), Program Committee Module (Module 3), and the Notification System. The interaction between these modules will be facilitated through well-defined interfaces.
 
-![se_lab_srs_requirements drawio](https://github.com/ravidak/se_lab_project1/assets/101610787/e41bff39-d979-42b0-880a-91cca66bfb75)
 
 
 ### 2.2 Product Functions
@@ -98,7 +97,7 @@ The NITCONF website requires specific communication functions to facilitate its 
 #### Security and Encryption:
 * HTTPS: Ensuring secure communication with encryption.
 * Data Synchronization: Real-time synchronization for timely notifications.
-## System Features
+## Functional Requirements
 The following features are made available to the users (authors).
 
 ### 4.1 Authentication
@@ -120,13 +119,8 @@ The following features are available as part of the main dashboard presented to 
 * The user is also provided with contact information of the reviewer
 * The comments are listed along with the version of the submission, the comment was targeted to.
 
-#### 4.2.4 Tags
-* The user can add a list of pre-determined tags indicating the major topics covered in the abstract
-* The Program Committee can later use these tags to assign reviewers accordingly
 
-#### 4.2.5 Notification System
-* The user is sent urgent notifications via Email in events such as a new comment, acceptance / rejection of a submission, etc.
-
+![se_lab_srs_requirements drawio](https://github.com/ravidak/se_lab_project1/assets/101610787/e41bff39-d979-42b0-880a-91cca66bfb75)
 
 ## Other Nonfunctional Requirements
 ### 5.1 Performance Requirements

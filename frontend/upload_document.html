@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Documents</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Upload Documents</h1>
+    </header>
+    <section>
+        <div class="container">
+            <form action="upload_process.php" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="files">Select Files (ppt, pdf, doc):</label>
+                    <input type="file" id="files" name="files[]" multiple accept=".ppt, .pptx, .pdf, .doc, .docx">
+                    <!-- The 'multiple' attribute allows users to select multiple files -->
+                </div>
+                <button type="submit" class="btn">Upload</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

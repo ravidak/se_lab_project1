@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS for layout adjustments */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            width: 80%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Small button styles */
+        .btn-small {
+            padding: 8px 12px;
+            margin: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-small:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Registration</h1>
+    </header>
+    <section>
+        <div class="container">
+            <form action="register_process.php" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="organisation">Organization:</label><br>
+                    <select id="organisation" name="organisation" required>
+                        <option value="choose">Choose</option>
+                        <option value="student">Student</option>
+                        <option value="self_employed">Self Employed</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" id="other_organisation" name="other_organisation" placeholder="Specify other organization" style="display: none;">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn-small" id="send_email_otp">Send OTP (Email)</button>
+                    <br>
+                    <input type="text" id="email_otp" name="email_otp" placeholder="Enter OTP" style="display: none;">
+                    <br> <!-- Blank space below email OTP -->
+                    <label for="email_otp" style="font-size: 14px;">OTP (Email)</label>
+                    <input type="text" id="email_otp" name="email_otp" placeholder="Enter OTP" style="display: none;">
+                    <br> <!-- Blank space below submit email OTP -->
+                    <button type="button" class="btn-small" id="verify_email_otp" style="display: none;">Verify OTP (Email)</button>
+                    <button type="button" class="btn-small" id="submit_email_otp" style="display: none;">Submit OTP (Email)</button>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="tel" id="phone_number" name="phone_number" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn-small" id="send_phone_otp">Send OTP (Phone)</button>
+                    <br>
+                    <input type="text" id="phone_otp" name="phone_otp" placeholder="Enter OTP" style="display: none;">
+                    <br> <!-- Blank space below phone OTP -->
+                    <label for="phone_otp" style="font-size: 14px;">OTP (Phone)</label>
+                    <input type="text" id="phone_otp" name="phone_otp" placeholder="Enter OTP" style="display: none;">
+                    <br> <!-- Blank space below submit phone OTP -->
+                    <button type="button" class="btn-small" id="verify_phone_otp" style="display: none;">Verify OTP (Phone)</button>
+                    <button type="button" class="btn-small" id="submit_phone_otp" style="display: none;">Submit OTP (Phone)</button>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <button type="submit" class="btn-small">Register</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        // Email OTP Actions
+        document.getElementById('send_email_otp').addEventListener('click', function() {
+            // Simulated sending OTP via email (replace with actual logic)
+            alert('OTP sent to your email!');
+            document.getElementById('email_otp').style.display = 'inline-block';
+            document.getElementById('verify_email_otp').style.display = 'inline-block';
+        });
+
+        document.getElementById('verify_email_otp').addEventListener('click', function() {
+            // Simulated OTP verification for email (replace with actual logic)
+            alert('Email OTP verified successfully!');
+        });
+
+        document.getElementById('submit_email_otp').addEventListener('click', function() {
+            // Simulated submitting OTP for email (replace with actual logic)
+            alert('Email OTP submitted successfully!');
+        });
+
+        // Phone OTP Actions
+        document.getElementById('send_phone_otp').addEventListener('click', function() {
+            // Simulated sending OTP via phone (replace with actual logic)
+            alert('OTP sent to your phone!');
+            document.getElementById('phone_otp').style.display = 'inline-block';
+            document.getElementById('verify_phone_otp').style.display = 'inline-block';
+        });
+
+        document.getElementById('verify_phone_otp').addEventListener('click', function() {
+            // Simulated OTP verification for phone (replace with actual logic)
+            alert('Phone OTP verified successfully!');
+        });
+
+        document.getElementById('submit_phone_otp').addEventListener('click', function() {
+            // Simulated submitting OTP for phone (replace with actual logic)
+            alert('Phone OTP submitted successfully!');
+        });
+
+        // Show/hide other organization field
+        document.getElementById('organisation').addEventListener('change', function() {
+            var otherOrganisation = document.getElementById('other_organisation');
+            if (this.value === 'other') {
+                otherOrganisation.style.display = 'block';
+                otherOrganisation.querySelector('input').setAttribute('required', true);
+            } else {
+                otherOrganisation.style.display = 'none';
+                otherOrganisation.querySelector('input').removeAttribute('required');
+            }
+        });
+    </script>
+</body>
+</html>

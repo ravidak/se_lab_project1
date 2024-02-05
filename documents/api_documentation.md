@@ -10,7 +10,7 @@ The Registration Servlet handles user registration by receiving data through an 
 - **Method:** `POST`
 - **Content Type:** `application/x-www-form-urlencoded`
 
-### Parameters
+# Parameters
 
 - `name` (String): User's full name.
 - `username` (String): User's chosen username.
@@ -36,7 +36,7 @@ In case of errors, the API returns an HTTP status code along with a message indi
 
 - `500 Internal Server Error`: An error occurred during registration.
 
-## Database Connection
+# Database Connection
 
 The servlet establishes a connection to a MySQL database using the following credentials:
 
@@ -58,8 +58,7 @@ The servlet establishes a connection to a MySQL database using the following cre
   <input type="submit" value="Register">
 </form>
 
-
-## Login Servlet API Documentation
+<h3>Login Servlet API Documentation</h3>
 
 The Login Servlet handles user authentication by receiving login credentials through an HTML form.
 
@@ -155,7 +154,7 @@ private boolean verifyOTP(String emailOrPhone, String enteredOTP) {
 
 
 
-# Dashboard Servlet
+<h3> Dashboard Servlet </h3>
 
 The `DashboardServlet` is a Java servlet that handles requests for the Speaker Dashboard. It processes GET requests, retrieves necessary data from the database, and forwards the request to the `dashboard.jsp` page for rendering the HTML content.
 

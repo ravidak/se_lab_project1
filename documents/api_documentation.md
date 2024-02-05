@@ -1,8 +1,10 @@
 
 
-## Registration Servlet API Documentation
+##  API Documentation
 
-The Registration Servlet handles user registration by receiving data through an HTML form and storing it in a MySQL database.
+# User Registration
+
+## Registration API Documentation
 
 ### Endpoint
 
@@ -11,13 +13,13 @@ The Registration Servlet handles user registration by receiving data through an 
 
 ### Parameters
 
-- `name` (String): User's full name.
-- `username` (String): User's chosen username.
-- `organisation` (String): User's organization.
-- `email` (String): User's email address.
-- `mobile` (String): User's mobile number.
-- `password` (String): User's chosen password.
-- `cnfpass` (String): Confirmation of the user's password.
+1. `name` (String): User's full name.
+2. `username` (String): User's chosen username.
+3. `organisation` (String): User's organization.
+4. `email` (String): User's email address.
+5. `mobile` (String): User's mobile number.
+6. `password` (String): User's chosen password.
+7. `cnfpass` (String): Confirmation of the user's password.
 
 ### Responses
 
@@ -57,14 +59,14 @@ The servlet establishes a connection to a MySQL database using the following cre
   <input type="submit" value="Register">
 </form>
 
-## Login Servlet API Documentation
+# User Login
 
-The Login Servlet handles user authentication by receiving login credentials through an HTML form.
+## Login API Documentation
 
 ### Endpoint
 
 - **Method:** `POST`
-- **Content Type:** `application/x-www-form-urlencoded`
+- **Content Type:** `text/html`
 
 ### Parameters
 
@@ -96,13 +98,11 @@ In case of errors, the API returns an HTTP status code along with a message indi
   <input type="submit" value="Login">
 </form>
 
-# Forgot Password Servlet API Documentation
+# Forgot Password
 
-The `ForgotPasswordServlet` handles the forgot password functionality by receiving user input, simulating OTP verification, and updating the password in a simulated database. Below is the API documentation for this servlet.
+## Forgot Password API Documentation
 
-## Endpoint
-
-### Method
+### Endpoint
 
 - **Method:** `POST`
 - **Content Type:** `application/x-www-form-urlencoded`
@@ -132,11 +132,8 @@ In case of errors, the API returns an HTTP status code along with a message indi
 - `Password reset failed. Please try again.`
 - `Invalid OTP. Please enter the correct OTP.`
 
-### Simulated Logic
 
-The provided code includes simulated methods for OTP verification and updating the password in the database. Replace these methods with your actual logic for OTP verification and database interaction.
-
-#### Simulated OTP Verification
+### Simulated OTP Verification
 
 ```java
 private boolean verifyOTP(String emailOrPhone, String enteredOTP) {
@@ -146,48 +143,134 @@ private boolean verifyOTP(String emailOrPhone, String enteredOTP) {
     return true; // For simplicity, always return true
 }
 
-## Dashboard Servlet
+# Dashboard
 
-The `DashboardServlet` is a Java servlet that handles requests for the Speaker Dashboard. It processes GET requests, retrieves necessary data from the database, and forwards the request to the `dashboard.jsp` page for rendering the HTML content.
+## Dashboard API Documentation
 
 ### Endpoint
 
 ### Functionality
 
-- Handles requests for the Speaker Dashboard.
+- Handles requests for the User Dashboard.
 - Retrieves any necessary data from the database or performs other backend logic.
-- Forwards the request to the `dashboard.jsp` page for rendering HTML content.
+- Forwards the request to the dashboard page for rendering HTML content.
 
 ### Usage
 
-1. Make a GET request to `/dashboard` to access the Speaker Dashboard.
-2. The servlet processes the request, retrieves data, and forwards it to the `dashboard.jsp` page.
+1. Make a GET request to `/dashboard` to access the User Dashboard.
+2. The servlet processes the request, retrieves data, and forwards it to the dashboard page.
 
 ### Dependencies
 
 - This servlet is designed to work in a Java web application environment.
-- Ensure that the necessary dependencies, such as a servlet container like Apache Tomcat, are properly configured.
+
 
 # Research Paper Submission
 
-The Research Paper Submission page provides a form for researchers to submit their research papers. Below is the HTML and Java code for implementing the backend logic of this page.
+## Research Paper Submission API Documentation
 
-## HTML Code
+### Endpoint
+
+- **Method:** `POST`
+- **Content Type:** `multipart/form-data`
+
+### Parameters
+
+1. `title` (String): Title of the research paper.
+2. `field` (String): Field of the research paper.
+3. `country` (String): Country code.
+4. `file` (File): Research paper file (PDF, DOC, DOCX).
+5. `abstract` (String): Abstract of the research paper.
+6. `keywords` (String): Keywords associated with the research paper.
+7. `author1_name` (String): Name of the first author.
+8. `author1_designation` (String): Designation of the first author.
+9. `author1_contact` (String): Contact number of the first author.
+10. `author1_email` (String): Email of the first author.
+11. `address_line1` (String): Address line 1 for communication.
+12. `address_line2` (String): Address line 2 for communication.
+13. `city_district` (String): City/District for communication.
+14. `state` (String): State for communication.
+15. `country_communication` (String): Country for communication.
+16. `postal_code` (String): Postal code for communication.
+
+### Responses
+
+- **Successful Response:**
+  - **Status Code:** `200 OK`
+  - **Body:** "Research paper submitted successfully"
+
+- **Error Response:**
+  - **Status Code:** `500 Internal Server Error`
+    - **Reason:** An error occurred during submission.
+
+### Error Handling
+
+In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
+
+- `500 Internal Server Error`: An error occurred during submission.
+
+### Example HTML Form
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
+<form action="/submit" method="post" enctype="multipart/form-data">
+  Title: <input type="text" name="title"><br>
+  Field: <input type="text" name="field"><br>
+  Country Code: <input type="text" name="country"><br>
+  Upload Paper (PDF, DOC, DOCX only): <input type="file" name="file[]" accept=".pdf, .doc, .docx" multiple><br>
+  Abstract: <textarea name="abstract" rows="4"></textarea><br>
+  Keywords: <input type="text" name="keywords"><br>
+  Author 1 Name: <input type="text" name="author1_name"><br>
+  Author 1 Designation: <input type="text" name="author1_designation"><br>
+  Author 1 Contact Number: <input type="tel" name="author1_contact"><br>
+  Author 1 Email: <input type="email" name="author1_email"><br>
+  Address Line 1: <input type="text" name="address_line1"><br>
+  Address Line 2: <input type="text" name="address_line2"><br>
+  City/District: <input type="text" name="city_district"><br>
+  State: <input type="text" name="state"><br>
+  Country: <input type="text" name="country_communication"><br>
+  Postal Code: <input type="text" name="postal_code"><br>
+  <input type="submit" value="Submit">
+</form>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Paper Submission</title>
-    <!-- Styles and scripts can be included here -->
-</head>
+# View Submitted Papers
 
-<body>
-    <!-- Complete HTML code for the Research Paper Submission page -->
-    <!-- ... -->
-</body>
+## View Submitted Papers API Documentation
 
-</html>
+### Endpoint
+
+### Functionality
+
+- Retrieves and displays the list of submitted research papers.
+- Allows assigning reviewers to specific papers.
+
+### Usage
+
+1. Make a GET request to `/view-papers` to access the list of submitted papers.
+2. Reviewers can use the "Assign Reviewer" button to assign themselves to specific papers.
+
+### Dependencies
+
+- This functionality assumes a backend implementation that provides the list of submitted papers.
+
+### Example HTML Table
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Paper Name</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Sample data or dynamically populated data goes here -->
+    <tr>
+      <td>Paper 1</td>
+      <td>Submitted</td>
+      <td><button class="assign-button" onclick="assignReviewer('Paper 1')">Assign Reviewer</button></td>
+    </tr>
+    <!-- Repeat as needed -->
+  </tbody>
+</table>
+

@@ -1,16 +1,15 @@
-# Registration Servlet API Documentation
+
+
+## Registration Servlet API Documentation
 
 The Registration Servlet handles user registration by receiving data through an HTML form and storing it in a MySQL database.
 
-## Endpoint
-
-
-## Request
+### Endpoint
 
 - **Method:** `POST`
 - **Content Type:** `application/x-www-form-urlencoded`
 
-# Parameters
+### Parameters
 
 - `name` (String): User's full name.
 - `username` (String): User's chosen username.
@@ -20,7 +19,7 @@ The Registration Servlet handles user registration by receiving data through an 
 - `password` (String): User's chosen password.
 - `cnfpass` (String): Confirmation of the user's password.
 
-## Responses
+### Responses
 
 - **Successful Response:**
   - **Status Code:** `200 OK`
@@ -30,13 +29,13 @@ The Registration Servlet handles user registration by receiving data through an 
   - **Status Code:** `500 Internal Server Error`
     - **Reason:** An error occurred during registration.
 
-## Error Handling
+### Error Handling
 
 In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
 
 - `500 Internal Server Error`: An error occurred during registration.
 
-# Database Connection
+### Database Connection
 
 The servlet establishes a connection to a MySQL database using the following credentials:
 
@@ -44,7 +43,7 @@ The servlet establishes a connection to a MySQL database using the following cre
 - **Username:** `root`
 - **Password:** `B210445@cs`
 
-## Example HTML Form
+### Example HTML Form
 
 ```html
 <form action="/Register" method="post">
@@ -58,14 +57,11 @@ The servlet establishes a connection to a MySQL database using the following cre
   <input type="submit" value="Register">
 </form>
 
-<h3>Login Servlet API Documentation</h3>
+## Login Servlet API Documentation
 
 The Login Servlet handles user authentication by receiving login credentials through an HTML form.
 
-## Endpoint
-
-
-## Request
+### Endpoint
 
 - **Method:** `POST`
 - **Content Type:** `application/x-www-form-urlencoded`
@@ -75,7 +71,7 @@ The Login Servlet handles user authentication by receiving login credentials thr
 - `username` (String): User's username.
 - `password` (String): User's password.
 
-## Responses
+### Responses
 
 - **Successful Response:**
   - **Status Code:** `200 OK`
@@ -85,13 +81,13 @@ The Login Servlet handles user authentication by receiving login credentials thr
   - **Status Code:** `401 Unauthorized`
     - **Reason:** Invalid username or password.
 
-## Error Handling
+### Error Handling
 
 In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
 
 - `401 Unauthorized`: Invalid username or password.
 
-## Example HTML Form
+### Example HTML Form
 
 ```html
 <form action="/Login" method="post">
@@ -106,7 +102,7 @@ The `ForgotPasswordServlet` handles the forgot password functionality by receivi
 
 ## Endpoint
 
-## Request
+### Method
 
 - **Method:** `POST`
 - **Content Type:** `application/x-www-form-urlencoded`
@@ -117,7 +113,7 @@ The `ForgotPasswordServlet` handles the forgot password functionality by receivi
 2. `otp` (String): Entered OTP for verification.
 3. `password` (String): New password for resetting.
 
-## Responses
+### Responses
 
 - **Successful Response:**
   - **Status Code:** `200 OK`
@@ -129,18 +125,18 @@ The `ForgotPasswordServlet` handles the forgot password functionality by receivi
   - **Status Code:** `200 OK`
     - **Body:** "Invalid OTP. Please enter the correct OTP."
 
-## Error Handling
+### Error Handling
 
 In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
 
 - `Password reset failed. Please try again.`
 - `Invalid OTP. Please enter the correct OTP.`
 
-## Simulated Logic
+### Simulated Logic
 
 The provided code includes simulated methods for OTP verification and updating the password in the database. Replace these methods with your actual logic for OTP verification and database interaction.
 
-### Simulated OTP Verification
+#### Simulated OTP Verification
 
 ```java
 private boolean verifyOTP(String emailOrPhone, String enteredOTP) {
@@ -150,32 +146,48 @@ private boolean verifyOTP(String emailOrPhone, String enteredOTP) {
     return true; // For simplicity, always return true
 }
 
-
-
-
-
-<h3> Dashboard Servlet </h3>
+## Dashboard Servlet
 
 The `DashboardServlet` is a Java servlet that handles requests for the Speaker Dashboard. It processes GET requests, retrieves necessary data from the database, and forwards the request to the `dashboard.jsp` page for rendering the HTML content.
 
-## Endpoint
+### Endpoint
 
-
-## Functionality
+### Functionality
 
 - Handles requests for the Speaker Dashboard.
 - Retrieves any necessary data from the database or performs other backend logic.
 - Forwards the request to the `dashboard.jsp` page for rendering HTML content.
 
-## Usage
+### Usage
 
 1. Make a GET request to `/dashboard` to access the Speaker Dashboard.
 2. The servlet processes the request, retrieves data, and forwards it to the `dashboard.jsp` page.
 
-## Dependencies
+### Dependencies
 
 - This servlet is designed to work in a Java web application environment.
 - Ensure that the necessary dependencies, such as a servlet container like Apache Tomcat, are properly configured.
 
+# Research Paper Submission
 
+The Research Paper Submission page provides a form for researchers to submit their research papers. Below is the HTML and Java code for implementing the backend logic of this page.
 
+## HTML Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Paper Submission</title>
+    <!-- Styles and scripts can be included here -->
+</head>
+
+<body>
+    <!-- Complete HTML code for the Research Paper Submission page -->
+    <!-- ... -->
+</body>
+
+</html>

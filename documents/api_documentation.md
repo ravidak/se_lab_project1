@@ -45,21 +45,9 @@ The servlet establishes a connection to a MySQL database using the following cre
 - **Username:** `root`
 - **Password:** `B210445@cs`
 
-### Example HTML Form
 
-```html
-<form action="/Register" method="post">
-  Name: <input type="text" name="name"><br>
-  Username: <input type="text" name="username"><br>
-  Organisation: <input type="text" name="organisation"><br>
-  Email: <input type="text" name="email"><br>
-  Mobile: <input type="text" name="mobile"><br>
-  Password: <input type="password" name="password"><br>
-  Confirm Password: <input type="password" name="cnfpass"><br>
-  <input type="submit" value="Register">
-</form>
 
-# User Login
+## User Login
 
 ## Login API Documentation
 
@@ -88,15 +76,6 @@ The servlet establishes a connection to a MySQL database using the following cre
 In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
 
 - `401 Unauthorized`: Invalid username or password.
-
-### Example HTML Form
-
-```html
-<form action="/Login" method="post">
-  Username: <input type="text" name="username"><br>
-  Password: <input type="password" name="password"><br>
-  <input type="submit" value="Login">
-</form>
 
 # Forgot Password
 
@@ -135,13 +114,6 @@ In case of errors, the API returns an HTTP status code along with a message indi
 
 ### Simulated OTP Verification
 
-```java
-private boolean verifyOTP(String emailOrPhone, String enteredOTP) {
-    // Implement your OTP verification logic here
-    // Compare enteredOTP with the stored OTP in your system
-    // Return true if OTP is correct, false otherwise
-    return true; // For simplicity, always return true
-}
 
 # Dashboard
 
@@ -209,28 +181,6 @@ In case of errors, the API returns an HTTP status code along with a message indi
 
 - `500 Internal Server Error`: An error occurred during submission.
 
-### Example HTML Form
-
-```html
-<form action="/submit" method="post" enctype="multipart/form-data">
-  Title: <input type="text" name="title"><br>
-  Field: <input type="text" name="field"><br>
-  Country Code: <input type="text" name="country"><br>
-  Upload Paper (PDF, DOC, DOCX only): <input type="file" name="file[]" accept=".pdf, .doc, .docx" multiple><br>
-  Abstract: <textarea name="abstract" rows="4"></textarea><br>
-  Keywords: <input type="text" name="keywords"><br>
-  Author 1 Name: <input type="text" name="author1_name"><br>
-  Author 1 Designation: <input type="text" name="author1_designation"><br>
-  Author 1 Contact Number: <input type="tel" name="author1_contact"><br>
-  Author 1 Email: <input type="email" name="author1_email"><br>
-  Address Line 1: <input type="text" name="address_line1"><br>
-  Address Line 2: <input type="text" name="address_line2"><br>
-  City/District: <input type="text" name="city_district"><br>
-  State: <input type="text" name="state"><br>
-  Country: <input type="text" name="country_communication"><br>
-  Postal Code: <input type="text" name="postal_code"><br>
-  <input type="submit" value="Submit">
-</form>
 
 # View Submitted Papers
 
@@ -251,26 +201,4 @@ In case of errors, the API returns an HTTP status code along with a message indi
 ### Dependencies
 
 - This functionality assumes a backend implementation that provides the list of submitted papers.
-
-### Example HTML Table
-
-```html
-<table>
-  <thead>
-    <tr>
-      <th>Paper Name</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Sample data or dynamically populated data goes here -->
-    <tr>
-      <td>Paper 1</td>
-      <td>Submitted</td>
-      <td><button class="assign-button" onclick="assignReviewer('Paper 1')">Assign Reviewer</button></td>
-    </tr>
-    <!-- Repeat as needed -->
-  </tbody>
-</table>
 

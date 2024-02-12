@@ -202,3 +202,4 @@ In case of errors, the API returns an HTTP status code along with a message indi
 
 - This functionality assumes a backend implementation that provides the list of submitted papers.
 
+Thanks!

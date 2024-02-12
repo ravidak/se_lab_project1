@@ -1,5 +1,5 @@
 /**
- * GitHub API Documentation
+* GitHub API Documentation
  * 
  * This document describes the REST API endpoints provided by GitHub.
  */

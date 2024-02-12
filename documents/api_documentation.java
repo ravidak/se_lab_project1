@@ -1,204 +1,140 @@
-
-
-##  API Documentation
-
-# User Registration
-
-## Registration API Documentation
-
-### Endpoint
-
-- **Method:** `POST`
-- **Content Type:** `application/x-www-form-urlencoded`
-
-### Parameters
-
-1. `name` (String): User's full name.
-2. `username` (String): User's chosen username.
-3. `organisation` (String): User's organization.
-4. `email` (String): User's email address.
-5. `mobile` (String): User's mobile number.
-6. `password` (String): User's chosen password.
-7. `cnfpass` (String): Confirmation of the user's password.
-
-### Responses
-
-- **Successful Response:**
-  - **Status Code:** `200 OK`
-  - **Body:** "You have successfully registered"
-
-- **Error Response:**
-  - **Status Code:** `500 Internal Server Error`
-    - **Reason:** An error occurred during registration.
-
-### Error Handling
-
-In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
-
-- `500 Internal Server Error`: An error occurred during registration.
-
-### Database Connection
-
-The servlet establishes a connection to a MySQL database using the following credentials:
-
-- **Database URL:** `jdbc:mysql://localhost:3306/Loginpage`
-- **Username:** `root`
-- **Password:** `B210445@cs`
-
-
-
-## User Login
-
-## Login API Documentation
-
-### Endpoint
-
-- **Method:** `POST`
-- **Content Type:** `text/html`
-
-### Parameters
-
-- `username` (String): User's username.
-- `password` (String): User's password.
-
-### Responses
-
-- **Successful Response:**
-  - **Status Code:** `200 OK`
-  - **Body:** "Login successful"
-
-- **Error Response:**
-  - **Status Code:** `401 Unauthorized`
-    - **Reason:** Invalid username or password.
-
-### Error Handling
-
-In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
-
-- `401 Unauthorized`: Invalid username or password.
-
-# Forgot Password
-
-## Forgot Password API Documentation
-
-### Endpoint
-
-- **Method:** `POST`
-- **Content Type:** `application/x-www-form-urlencoded`
-
-### Parameters
-
-1. `email_or_phone` (String): User's email or phone number.
-2. `otp` (String): Entered OTP for verification.
-3. `password` (String): New password for resetting.
-
-### Responses
-
-- **Successful Response:**
-  - **Status Code:** `200 OK`
-  - **Body:** "Password reset successful"
-
-- **Error Responses:**
-  - **Status Code:** `200 OK`
-    - **Body:** "Password reset failed. Please try again."
-  - **Status Code:** `200 OK`
-    - **Body:** "Invalid OTP. Please enter the correct OTP."
-
-### Error Handling
-
-In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
-
-- `Password reset failed. Please try again.`
-- `Invalid OTP. Please enter the correct OTP.`
-
-
-### Simulated OTP Verification
-
-
-# Dashboard
-
-## Dashboard API Documentation
-
-### Endpoint
-
-### Functionality
-
-- Handles requests for the User Dashboard.
-- Retrieves any necessary data from the database or performs other backend logic.
-- Forwards the request to the dashboard page for rendering HTML content.
-
-### Usage
-
-1. Make a GET request to `/dashboard` to access the User Dashboard.
-2. The servlet processes the request, retrieves data, and forwards it to the dashboard page.
-
-### Dependencies
-
-- This servlet is designed to work in a Java web application environment.
-
-
-# Research Paper Submission
-
-## Research Paper Submission API Documentation
-
-### Endpoint
-
-- **Method:** `POST`
-- **Content Type:** `multipart/form-data`
-
-### Parameters
-
-1. `title` (String): Title of the research paper.
-2. `field` (String): Field of the research paper.
-3. `country` (String): Country code.
-4. `file` (File): Research paper file (PDF, DOC, DOCX).
-5. `abstract` (String): Abstract of the research paper.
-6. `keywords` (String): Keywords associated with the research paper.
-7. `author1_name` (String): Name of the first author.
-8. `author1_designation` (String): Designation of the first author.
-9. `author1_contact` (String): Contact number of the first author.
-10. `author1_email` (String): Email of the first author.
-11. `address_line1` (String): Address line 1 for communication.
-12. `address_line2` (String): Address line 2 for communication.
-13. `city_district` (String): City/District for communication.
-14. `state` (String): State for communication.
-15. `country_communication` (String): Country for communication.
-16. `postal_code` (String): Postal code for communication.
-
-### Responses
-
-- **Successful Response:**
-  - **Status Code:** `200 OK`
-  - **Body:** "Research paper submitted successfully"
-
-- **Error Response:**
-  - **Status Code:** `500 Internal Server Error`
-    - **Reason:** An error occurred during submission.
-
-### Error Handling
-
-In case of errors, the API returns an HTTP status code along with a message indicating the nature of the error.
-
-- `500 Internal Server Error`: An error occurred during submission.
-
-
-# View Submitted Papers
-
-## View Submitted Papers API Documentation
-
-### Endpoint
-
-### Functionality
-
-- Retrieves and displays the list of submitted research papers.
-- Allows assigning reviewers to specific papers.
-
-### Usage
-
-1. Make a GET request to `/view-papers` to access the list of submitted papers.
-2. Reviewers can use the "Assign Reviewer" button to assign themselves to specific papers.
-
-### Dependencies
-
-- This functionality assumes a backend implementation that provides the list of submitted papers.
-
+/**
+ * GitHub API Documentation
+ * 
+ * This document describes the REST API endpoints provided by GitHub.
+ */
+public class GitHubAPIDocumentation {
+
+  /**
+   * Authenticate user and get access token.
+   * 
+   * Endpoint: /login ("http://localhost:8082/signup/login.jsp")
+   * Method: POST
+   * 
+   * Request Parameters:
+   * - username (String): GitHub username
+   * - password (String): GitHub password
+   * 
+   * Response Format:
+   * - Success (HTTP Status Code 200):
+   * {
+   * "access_token": "YOUR_ACCESS_TOKEN"
+   * }
+   * - Error (HTTP Status Code 401 Unauthorized):
+   * {
+   * "error": "Invalid credentials"
+   * }
+   * 
+   * @param username GitHub username
+   * @param password GitHub password
+   * @return Access token if authentication is successful
+   */
+  public String authenticate(String username, String password) {
+    // Implementation details omitted
+  }
+
+  /**
+   * Get user information.
+   * 
+   * Endpoint: /users/{username}
+   * Method: GET
+   * 
+   * Path Parameters:
+   * - username (String): GitHub username
+   * 
+   * Response Format:
+   * - Success (HTTP Status Code 200):
+   * {
+   * "username": "john_doe",
+   * "name": "John Doe",
+   * "email": "john@example.com",
+   * ...
+   * }
+   * - Error (HTTP Status Code 404 Not Found):
+   * {
+   * "error": "User not found"
+   * }
+   * 
+   * @param username GitHub username
+   * @return User information if found
+   */
+  public String getUserInfo(String username) {
+    // Implementation details omitted
+  }
+
+  // Add more API methods here as needed
+}
+
+/**
+ * Registration Servlet API Documentation
+ * 
+ * This document describes the REST API endpoints provided by the
+ * RegistrationServlet.
+ */
+public class RegistrationServletAPIDocumentation {
+
+  /**
+   * Register a new user.
+   * 
+   * Endpoint: /register ("http://localhost:8082/signup/registration.jsp")
+   * Method: POST
+   * 
+   * Request Parameters:
+   * - name (String): User's full name
+   * - email (String): User's email address
+   * - pass (String): User's password
+   * - contact (String): User's contact number
+   * 
+   * Response Format:
+   * - Success (HTTP Status Code 200):
+   * {
+   * "status": "success"
+   * }
+   * - Error (HTTP Status Code 400 Bad Request):
+   * {
+   * "status": "failed"
+   * }
+   * 
+   * @param name    User's full name
+   * @param email   User's email address
+   * @param pass    User's password
+   * @param contact User's contact number
+   * @return Status indicating success or failure of the registration process
+   */
+  public String registerUser(String name, String email, String pass, String contact) {
+    // Implementation details omitted
+  }
+
+  // Additional API methods can be added here if needed
+}
+
+/**
+ * Logout Servlet API Documentation
+ * 
+ * This document describes the REST API endpoints provided by the Logout
+ * servlet.
+ */
+public class LogoutServletAPIDocumentation {
+
+  /**
+   * Logout the current user.
+   * 
+   * Endpoint: /logout ("http://localhost:8082/signup/login")
+   * Method: GET
+   * 
+   * Response Format:
+   * - Success (HTTP Status Code 200):
+   * {
+   * "message": "User successfully logged out"
+   * }
+   * 
+   * Redirects the user to the login page after successful logout.
+   * 
+   * @return Message indicating successful logout
+   */
+  public String logoutUser() {
+    // Implementation details omitted
+  }
+
+  // Additional API methods can be added here if needed
+}

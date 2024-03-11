@@ -1,4 +1,4 @@
-name: servlet-project
+name: Maven Build
 
 on:
   push:
@@ -16,17 +16,13 @@ jobs:
     - name: Set up Java JDK
       uses: actions/setup-java@v2
       with:
-        distribution: 'adopt'
         java-version: '11'
 
     - name: Build with Maven
-      run: mvn -B package --file signup/pom.xml
+      run: mvn -B package
 
-    - name: Copy servlet files
-      run: cp signup/src/main/java/com/uniquedeveloper/registration/*.java target/classes/com/uniquedeveloper/registration/
-
-    - name: Copy web.xml file
-      run: cp signup/src/main/webapp/WEB-INF/web.xml target/classes/WEB-INF/
-
-    - name: Run servlet project
-      run: java -cp "target/classes:target/dependency/*" com.uniquedeveloper.registration.Main
+    - name: Deploy WAR artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-webapp
+        path: target/*.war

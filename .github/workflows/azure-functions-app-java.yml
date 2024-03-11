@@ -1,4 +1,4 @@
-name: Maven Build
+name: Maven Build and Deploy
 
 on:
   push:
@@ -6,24 +6,44 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
+    - name: Set up job
+      id: setup_job
+      run: echo "Setting up job..."
+    
     - name: Checkout code
       uses: actions/checkout@v2
-
+      id: checkout_code
+    
     - name: Set up Java JDK
       uses: actions/setup-java@v2
+      id: setup_java
       with:
         distribution: 'adopt'
         java-version: '11'
-
+    
     - name: Build with Maven
+      id: build_with_maven
       run: mvn -B package
-
+    
     - name: Deploy WAR artifact
+      id: deploy_war
       uses: actions/upload-artifact@v2
       with:
         name: my-webapp
         path: target/*.war
+    
+    - name: Post setup Java JDK
+      if: success()
+      run: echo "Java JDK setup successful."
+    
+    - name: Post checkout code
+      if: success()
+      run: echo "Code checkout successful."
+    
+    - name: Complete job
+      if: always()
+      run: echo "Job completed successfully."

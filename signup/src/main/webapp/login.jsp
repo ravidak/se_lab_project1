@@ -39,7 +39,7 @@
 								<label for="username"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="username" id="username"
-									placeholder="Registered Email id" />
+									placeholder="Your Name" />
 							</div>
 							<div class="form-group">
 								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
@@ -85,7 +85,7 @@
 <script type="text/javascript">
 	var status=document.getElementById("status").value;
 	if(status == "failed"){
-			swal("sorry","wrong username or password","error");
+			swal("sorry","wrong username or password","failed");
 		}
 	</script>
 

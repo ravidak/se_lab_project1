@@ -21,7 +21,8 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file signup/pom.xml
 
+    - name: Copy servlet files
+      run: cp -r signup/src/main/java/com/uniquedeveloper/registration/. target/classes/com/uniquedeveloper/registration/
+
     - name: Run servlet project
-      run: |
-        cp -r signup/src/main/java/com/uniquedeveloper/registration/. target/classes/com/uniquedeveloper/registration/
-        java -cp "target/classes:target/dependency/*" com.uniquedeveloper.registration.Main
+      run: java -cp "target/classes:target/dependency/*" com.uniquedeveloper.registration.Main

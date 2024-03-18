@@ -1,4 +1,4 @@
-name: Maven Build, Test, and Deploy
+name: Maven Build and Deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-test-and-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
@@ -29,10 +29,6 @@ jobs:
       id: build_with_maven
       run: mvn -B package
     
-    - name: Run tests
-      id: run_tests
-      run: mvn test
-    
     - name: Deploy WAR artifact
       id: deploy_war
       uses: actions/upload-artifact@v2
@@ -47,13 +43,7 @@ jobs:
     - name: Post checkout code
       if: success()
       run: echo "Code checkout successful."
-      
-    - name: Push changes to GitHub
-      if: success()
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ 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 }}
-      
+    
     - name: Complete job
       if: always()
       run: echo "Job completed successfully."
